@@ -7,6 +7,6 @@ namespace DemoPushNotification.Web.Hub
 {
     public interface ISignalRClient 
     {
-        void ShowNotification();
+        Task ShowNotification();
     }
 }
