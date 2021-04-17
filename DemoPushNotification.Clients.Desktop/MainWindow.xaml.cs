@@ -49,15 +49,15 @@ namespace DemoPushNotification.Clients.Desktop
 
             EnableButton(this,EventArgs.Empty);
 
-            signalRService.NotificationPushed += NotificationRecived;
+            signalRService.NotificationPushed += NotificationReceived;
 
             signalRService.ConnectionClosed += EnableButton;
             signalRService.ConnectionClosed += DisableButton;
         }
 
-        private void NotificationRecived(object sender, EventArgs e)
+        private void NotificationReceived(object sender, EventArgs e)
         {
-            MessageBox.Show("Notification recieved");
+            MessageBox.Show("Notification received");
         }
 
 
