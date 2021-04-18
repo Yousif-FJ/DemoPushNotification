@@ -12,10 +12,10 @@ namespace DemoPushNotification.Clients.Common
         public event EventHandler ConnectionClosed;
         public event EventHandler ReConnected;
 
-        public SignalRClientService()
+        public SignalRClientService(string url)
         {
             connection = new HubConnectionBuilder()
-               .WithUrl("http://localhost:62200/Apphub")
+               .WithUrl(url)
                .Build();
 
 

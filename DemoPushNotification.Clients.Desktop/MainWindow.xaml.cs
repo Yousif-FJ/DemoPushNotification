@@ -21,10 +21,9 @@ namespace DemoPushNotification.Clients.Desktop
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly SignalRClientService signalRService;
+        private SignalRClientService signalRService;
         public MainWindow()
         {
-            signalRService = new SignalRClientService();
             InitializeComponent();
         }
 
@@ -39,6 +38,7 @@ namespace DemoPushNotification.Clients.Desktop
         {
             try
             {
+                signalRService = new SignalRClientService("http://localhost:62200/Apphub");
                 await signalRService.StartConectionAndListenAsync();
             }
             catch (Exception e)

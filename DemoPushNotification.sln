@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoPushNotification.Web", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoPushNotification.Clients.Common", "DemoPushNotification.Clients.Common\DemoPushNotification.Clients.Common.csproj", "{A4BE7904-02E8-4F33-9E6E-41F2EF6F75AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoPushNotification.Clients.Desktop", "DemoPushNotification.Clients.Desktop\DemoPushNotification.Clients.Desktop.csproj", "{C55BFCCC-3E22-4AD5-8FAE-1AFA2A8B9DBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoPushNotification.Clients.Desktop", "DemoPushNotification.Clients.Desktop\DemoPushNotification.Clients.Desktop.csproj", "{C55BFCCC-3E22-4AD5-8FAE-1AFA2A8B9DBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoPushNotification.Client.Mobile.Android", "DemoPushNotification.Client.Mobile.Android\DemoPushNotification.Client.Mobile.Android.csproj", "{83CEF1F5-73A6-4918-ACA4-C5B6884D31F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoPushNotification.Client.Mobile", "DemoPushNotification.Client.Mobile\DemoPushNotification.Client.Mobile.csproj", "{465325DA-E8AA-4ADB-94E2-C4C51E9F0FCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,16 @@ Global
 		{C55BFCCC-3E22-4AD5-8FAE-1AFA2A8B9DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C55BFCCC-3E22-4AD5-8FAE-1AFA2A8B9DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C55BFCCC-3E22-4AD5-8FAE-1AFA2A8B9DBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83CEF1F5-73A6-4918-ACA4-C5B6884D31F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83CEF1F5-73A6-4918-ACA4-C5B6884D31F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83CEF1F5-73A6-4918-ACA4-C5B6884D31F2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{83CEF1F5-73A6-4918-ACA4-C5B6884D31F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83CEF1F5-73A6-4918-ACA4-C5B6884D31F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83CEF1F5-73A6-4918-ACA4-C5B6884D31F2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{465325DA-E8AA-4ADB-94E2-C4C51E9F0FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{465325DA-E8AA-4ADB-94E2-C4C51E9F0FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{465325DA-E8AA-4ADB-94E2-C4C51E9F0FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{465325DA-E8AA-4ADB-94E2-C4C51E9F0FCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
