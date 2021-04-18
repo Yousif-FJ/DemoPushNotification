@@ -9,26 +9,17 @@ namespace DemoPushNotification.Clients.Common
         private readonly HubConnection connection;
 
         public event EventHandler NotificationPushed;
-        public event EventHandler ConnectionClosed;
-        public event EventHandler ReConnected;
 
         public SignalRClientService(string url)
         {
+
             connection = new HubConnectionBuilder()
                .WithUrl(url)
                .Build();
 
 
-            connection.Reconnected += (error) =>
-            {
-                ReConnected?.Invoke(this, EventArgs.Empty);
-                return Task.CompletedTask;
-            };
-
             connection.Closed += async (error) =>
             {
-                ConnectionClosed?.Invoke(this, EventArgs.Empty);
-
                 await Task.Delay(3000);
                 await connection.StartAsync();
             };
@@ -37,6 +28,7 @@ namespace DemoPushNotification.Clients.Common
         public async Task StartConectionAndListenAsync()
         {
             await connection.StartAsync();
+
             connection.On("ShowNotification", () => { OnInvokeNotification(); });
         }
 

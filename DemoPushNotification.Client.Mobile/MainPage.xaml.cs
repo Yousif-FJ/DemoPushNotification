@@ -1,9 +1,5 @@
 ﻿using DemoPushNotification.Clients.Common;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -11,8 +7,9 @@ namespace DemoPushNotification.Client.Mobile
 {
     public partial class MainPage : ContentPage
     {
+        private const string Url = "http://10.0.2.2:62200/Apphub";
         private SignalRClientService signalRService;
-        private bool enableButton;
+
         public MainPage()
         {
             InitializeComponent();
@@ -29,26 +26,21 @@ namespace DemoPushNotification.Client.Mobile
         {
             try
             {
-                signalRService = new SignalRClientService("http://10.0.2.2:62200/Apphub");
+                signalRService = new SignalRClientService(Url);
                 await signalRService.StartConectionAndListenAsync();
             }
             catch (Exception e)
             {
-                await DisplayAlert("error", e.Message,"Ok");
+                await DisplayAlert("error", e.Message, "Ok");
                 return;
             }
 
-            EnableButton(this, EventArgs.Empty);
-
             signalRService.NotificationPushed += NotificationReceived;
-
-            signalRService.ConnectionClosed += EnableButton;
-            signalRService.ConnectionClosed += DisableButton;
         }
 
         private async void NotificationReceived(object sender, EventArgs e)
         {
-            await DisplayAlert("Notification","You Received Notification" , "Ok");
+            await DisplayAlert("Notification", "You Received Notification", "Ok");
         }
 
 
@@ -63,16 +55,6 @@ namespace DemoPushNotification.Client.Mobile
                 await DisplayAlert("error", e.Message, "Ok");
                 return;
             }
-        }
-
-        private void EnableButton(object sender, EventArgs e)
-        {
-            enableButton = true;
-        }
-
-        private void DisableButton(object sender, EventArgs e)
-        {
-            enableButton = false;
         }
     }
 }

@@ -1,18 +1,7 @@
 ﻿using DemoPushNotification.Clients.Common;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DemoPushNotification.Clients.Desktop
 {
@@ -21,6 +10,7 @@ namespace DemoPushNotification.Clients.Desktop
     /// </summary>
     public partial class MainWindow : Window
     {
+        private const string Url = "http://localhost:62200/Apphub";
         private SignalRClientService signalRService;
         public MainWindow()
         {
@@ -38,7 +28,8 @@ namespace DemoPushNotification.Clients.Desktop
         {
             try
             {
-                signalRService = new SignalRClientService("http://localhost:62200/Apphub");
+                signalRService = new SignalRClientService(Url);
+
                 await signalRService.StartConectionAndListenAsync();
             }
             catch (Exception e)
@@ -47,12 +38,7 @@ namespace DemoPushNotification.Clients.Desktop
                 return;
             }
 
-            EnableButton(this,EventArgs.Empty);
-
             signalRService.NotificationPushed += NotificationReceived;
-
-            signalRService.ConnectionClosed += EnableButton;
-            signalRService.ConnectionClosed += DisableButton;
         }
 
         private void NotificationReceived(object sender, EventArgs e)
@@ -64,16 +50,6 @@ namespace DemoPushNotification.Clients.Desktop
         private async void OnClick_btn_SendNotification(object sender, RoutedEventArgs e)
         {
             await signalRService.SendNotificationAsync();
-        }
-
-        private void EnableButton(object sender, EventArgs e)
-        {
-            btn_SendNotification.IsEnabled = true;
-        }
-
-        private void DisableButton(object sender, EventArgs e)
-        {
-            btn_SendNotification.IsEnabled = false;
         }
     }
 }
